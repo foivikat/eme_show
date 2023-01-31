@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <style>
             .fmain{
                 width: 100%;
@@ -16,15 +17,38 @@
         </style>
     </head>
 <body>
+
+    <form style="background-color: #424242; display: flex; justify-content: center; align-items: center;">
+
+        <select id="urloption" class="form-select" multiple aria-label="multiple select example" size="3" aria-label=".form-select-lg example">
+            <option selected value="https://content.e-me.edu.gr/wp-admin/admin-ajax.php?action=h5p_embed&id=745486">Κουίζ στις αντωνϋμίες</option>
+            <option value="https://content.e-me.edu.gr/wp-admin/admin-ajax.php?action=h5p_embed&id=236646">Άμεσο-Έμμεσο αντικείμενο</option>
+            <option value="https://quizizz.com/embed/quiz/63777897ed4853001e95de2f">quizizz Στον Ηλεκτρομαγνητισμό</option>
+            <option value="https://quizizz.com/embed/quiz/6040eee8bd33f8001ba96284">quizizz Ιστορία 28-32</option>
+            <option value="https://quizizz.com/embed/quiz/6027e1d421d3af001b5df4c4">quizizz Βραβεία Γκίνες και όχι μόνο</option>
+            <option value="https://wordwall.net/el/embed/11e33373b3b7489b995ddff610c0f276?themeId=6&templateId=45&fontStack">wordwall Παιχνίδι ορθογραφίας</option>
+        </select>
+    </form>
     
     <div class="fmain">
 
-        <iframe src="https://content.e-me.edu.gr/wp-admin/admin-ajax.php?action=h5p_embed&id=745486" width="800" height="600" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-        <!-- <iframe style="max-width:100%;z-index: 5;max-height: fit-content;" src="https://wordwall.net/el/embed/11e33373b3b7489b995ddff610c0f276?themeId=6&templateId=45&fontStackId=0" width="932" height="540" frameborder="0" allowfullscreen></iframe> -->
+        <iframe src="https://content.e-me.edu.gr/wp-admin/admin-ajax.php?action=h5p_embed&id=745486" width="800" height="600" frameborder="0" allow="fullscreen" ></iframe>
 
     </div>
+
+    
 
 </body>
 
 </html>
+
+<script>
+
+    $(urloption).on("change", function(){
+        var url = $(this).val();
+        var iframe = '<iframe src="' + url + '" width="800" height="600" frameborder="0" allow="fullscreen"></iframe>';
+        $(".fmain").html(iframe);
+    });
+
+    
+</script>
